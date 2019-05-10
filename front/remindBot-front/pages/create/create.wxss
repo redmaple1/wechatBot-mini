@@ -1,0 +1,10 @@
+/**create.wxss**/
+
+.content-input {
+  margin-top: 0.77em;
+  margin-bottom: 0.3em;
+  padding-left: 15px;
+  padding-right: 15px;
+  /* color: rgb(0, 0, 0); */
+  /* font-size: 14px; */
+}

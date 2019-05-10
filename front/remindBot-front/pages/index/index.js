@@ -55,6 +55,12 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  gotoCreate: function(){
+    console.log("gotoCreate");
+    wx.switchTab({
+      url: '../create/create',
+    })
   }
   
 })

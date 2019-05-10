@@ -14,7 +14,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.0.4",
 	"appid": "wx793879512f0058c6",
-	"projectname": "wechatApp",
+	"projectname": "remindBot-front",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
