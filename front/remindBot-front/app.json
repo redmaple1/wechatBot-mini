@@ -1,0 +1,35 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/home/home",
+    "pages/scan/scan",
+    
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "微信提醒机器人",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar":{
+    "list":[
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "pages/sources/image/shouye-xianxing.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "设置攻略",
+        "iconPath": "pages/sources/image/gonglue.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "我的",
+        "iconPath": "pages/sources/image/wode-xianxing.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}
