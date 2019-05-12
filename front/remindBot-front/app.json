@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/create/create",
+    "pages/login/login",
     "pages/scan/scan",
     
     "pages/logs/logs"
@@ -25,7 +26,7 @@
         "iconPath": "pages/sources/image/gonglue.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/login/login",
         "text": "我的",
         "iconPath": "pages/sources/image/wode-xianxing.png"
       }

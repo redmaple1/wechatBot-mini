@@ -1,0 +1,13 @@
+<!--login.wxml-->
+<view class="container page">
+  <view class="page__hd">
+        <view class="page__title">登陆</view>
+        <view class="page__desc">点击授权微信登陆</view>
+    </view>
+    <view class="page__bd">
+        <view class="weui-btn-area">
+            <button class="weui-btn" type="default" bindtap="openLoginConfirm">登陆</button>
+            <!-- <button class="weui-btn" type="default" bindtap="openAlert">Alert Dialog</button> -->
+        </view>
+    </view>
+</view>

@@ -1,2 +1,7 @@
 front/**/.DS_Store
+background/**/.DS_Store
+.idea
+/**/.idea
 
+backgroud/remindBot/target/*
+backgroud/remindBot/*.iml
