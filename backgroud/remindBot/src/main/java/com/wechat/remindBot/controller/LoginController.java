@@ -30,7 +30,7 @@ public class LoginController {
     @ResponseBody
     public String getLoginSesion(@RequestParam("js_code") String code){
 
-        String url = "https://api.weixin.qq.com/sns/jscode2session?appid=APPID&secret=SECRET&js_code=JSCODE&grant_type=authorization_code";
+        String url = "https://api.weixin.qq.com/sns/jscode2session?appid={appid}&secret={secret}&js_code={js_code}&grant_type=authorization_code";
 
         Map<String,Object> params = new HashMap<>();
 

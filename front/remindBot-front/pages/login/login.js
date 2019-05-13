@@ -13,35 +13,54 @@ Page({
     })
   },
   openLoginConfirm: function(){
-    wx.login({
-      success(res) {
-        if (res.code) {
-          // 发起网络请求
-          console.log('res.code=' + res.code)
-          // wx.request({
-          //   url: 'https://test.com/onLogin',
-          //   data: {
-          //     code: res.code
-          //   }
-          // })
+    wx.showModal({
+      title: '登陆授权',
+      content: '点击进行登陆',
+      confirmText: "确认",
+      cancelText: "取消",
+      success: function (res) {
+        console.log(res);
+        if (res.confirm) {
+          console.log('登陆-用户点击确认')
+          //显示loading
+          wx.showLoading({
+            title: '正在登陆',
+          })
+          wx.login({
+            success(res) {
+              if (res.code) {
+                // 向后端发送请求获取session
+                getSessionBack(res.code)
+              } else {
+                console.log('登录失败！' + res.errMsg)
+                wx.hideLoading()
+                wx.showToast({
+                  title: '登陆失败'
+                })
+              }
+            }
+          })
         } else {
-          console.log('登录失败！' + res.errMsg)
+          console.log('登陆-用户点击取消')
         }
       }
-    })
-    // wx.showModal({
-    //   title: '登陆授权',
-    //   content: '弹窗内容，告知当前状态、信息和解决方法，描述文字尽量控制在三行内',
-    //   confirmText: "主操作",
-    //   cancelText: "辅助操作",
-    //   success: function (res) {
-    //     console.log(res);
-    //     if (res.confirm) {
-    //       console.log('用户点击主操作')
-    //     } else {
-    //       console.log('用户点击辅助操作')
-    //     }
-    //   }
-    // });
+    });
   }
 })
+
+function getSessionBack(code){
+  console.log('js_code=' + code)
+  wx.request({
+    url: 'https://2ac4236b.ngrok.io/api/remindBot/login',
+    data: {
+      js_code: code
+    },
+    success(result) {
+      console.log(result.data)
+      wx.hideLoading()
+      wx.showToast({
+        title: '登陆成功'
+      })
+    }
+  })
+}
