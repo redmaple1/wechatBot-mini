@@ -2,6 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/create/create",
+    "pages/remindDetail/remindDetail",
+    "pages/remindEdit/remindEdit",
     "pages/login/login",
     "pages/scan/scan",
     
