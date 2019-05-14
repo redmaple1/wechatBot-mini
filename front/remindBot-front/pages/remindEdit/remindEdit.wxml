@@ -34,7 +34,7 @@
       <view class="weui-cell">
         <view class="weui-cell__bd">
           <textarea class="weui-textarea" value='{{remindInfo.content}}' disabled='{{disablededit}}' placeholder="请输入提醒内容" style="height: 3.3em" />
-          <view class="weui-textarea-counter">0/200</view>
+          <view class="weui-textarea-counter">{{remindInfo.content.length}}/200</view>
         </view>
       </view>
     </view>

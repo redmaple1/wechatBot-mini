@@ -20,10 +20,10 @@ public class LoginController {
     @Autowired
     private RestTemplate restTemplate;
 
-    @Value("${appid}")
+    @Value("${wechat.appid}")
     private String appId;
 
-    @Value("${appSecret}")
+    @Value("${wechat.appSecret}")
     private String appSecret;
 
     @GetMapping("login")

@@ -29,7 +29,7 @@ Page({
   },
   gotoCreate: function(){
     console.log("gotoCreate");
-    wx.switchTab({
+    wx.navigateTo({
       url: '../create/create',
     })
   },

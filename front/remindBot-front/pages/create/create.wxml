@@ -1,4 +1,5 @@
 <!--index.wxml-->
+<form bindsubmit="formSubmit" bindreset="formReset">
 <view class="container">
   <view class="page__hd">
     <view class="page__title">创建提醒</view>
@@ -10,7 +11,7 @@
         <view class="weui-label">提醒标题</view>
       </view>
       <view class="weui-cell__bd">
-        <input class="weui-input" placeholder="请输入提醒标题" />
+        <input name="title" maxlength='15' class="weui-input" placeholder="请输入提醒标题" />
       </view>
     </view>
     <view class="weui-cell weui-cell_input">
@@ -18,7 +19,7 @@
         <view class="weui-label">提醒对象</view>
       </view>
       <view class="weui-cell__bd">
-        <input class="weui-input" placeholder="输入提醒对象的备注名" />
+        <input name="sendTo" class="weui-input" placeholder="输入提醒对象的备注名" />
       </view>
     </view>
     <view class="weui-cell weui-cell_input">
@@ -26,19 +27,18 @@
         <view class="weui-label">cron表达式</view>
       </view>
       <view class="weui-cell__bd">
-        <input class="weui-input" placeholder="请输入cron表达式" />
+        <input name="cronExp" class="weui-input" placeholder="请输入cron表达式" />
       </view>
     </view>
     <view class="content-input">提醒内容</view>
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell">
         <view class="weui-cell__bd">
-          <textarea class="weui-textarea" placeholder="请输入提醒内容" style="height: 3.3em" />
+          <textarea name="content" maxlength='200' class="weui-textarea" placeholder="请输入提醒内容" style="height: 3.3em" />
           <view class="weui-textarea-counter">0/200</view>
         </view>
       </view>
     </view>
-
   </view>
   <!-- <view class="weui-cells__tips">底部说明文字底部说明文字</view> -->
 
@@ -47,6 +47,7 @@
 </view>
 <view style='height: 80rpx'></view>
 <view class="weui-btn-area">
-  <button class="weui-btn" type="primary" bindtap="showTopTips">提交</button>
-  <button class="weui-btn" type="default">重置</button>
+  <button class="weui-btn" type="primary" form-type='submit'>提交</button>
+  <button class="weui-btn" type="default" form-type='reset'>重置</button>
 </view>
+</form>

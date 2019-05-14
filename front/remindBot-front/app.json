@@ -22,11 +22,7 @@
         "text": "首页",
         "iconPath": "pages/sources/image/shouye-xianxing.png"
       },
-      {
-        "pagePath": "pages/create/create",
-        "text": "设置攻略",
-        "iconPath": "pages/sources/image/gonglue.png"
-      },
+    
       {
         "pagePath": "pages/login/login",
         "text": "我的",

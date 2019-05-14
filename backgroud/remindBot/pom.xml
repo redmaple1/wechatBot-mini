@@ -53,6 +53,14 @@
 			<artifactId>commons-lang3</artifactId>
 			<version>3.9</version>
 		</dependency>
+
+		<!-- learnCloud -->
+		<dependency>
+			<groupId>cn.leancloud</groupId>
+			<artifactId>java-sdk</artifactId>
+			<version>0.2.1</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
