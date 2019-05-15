@@ -42,8 +42,11 @@ const checkForm = (e) => {
     return false;
   }
   if (!cronUtil.cronValidate(cronExp)) {
+    return false;
+  }
+  if(content.length == 0){
     wx.showToast({
-      title: 'cron表达式格式不正确',
+      title: '提醒内容不能为空',
       icon: 'none'
     })
     return false;

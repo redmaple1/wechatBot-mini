@@ -6,6 +6,11 @@ import lombok.Data;
 public class RemindInfoVO {
 
     /**
+     * objectId
+     */
+    private String objectId;
+
+    /**
      * 提醒标题
      */
     private String title;

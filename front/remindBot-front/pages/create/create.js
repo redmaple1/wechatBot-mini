@@ -5,14 +5,16 @@ var checkUtil = require('../../utils/check.js')
 
 Page({
   data: {
-
-
+    noteMaxLen: 200,
+    currentNoteLen: 0
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+  wordLimit: function(e){
+    var value = e.detail.value,len = parseInt(value.length);
+    if(len > this.data.noteMaxLen) return;
+
+    this.setData({
+      currentNoteLen: len
+    });
   },
   onLoad: function() {
 
@@ -52,6 +54,12 @@ Page({
           wx.showToast({
             title: '创建提醒成功',
             icon: 'success',
+            duration: 1000
+          })
+        }else{
+          wx.showToast({
+            title: '创建提醒失败',
+            icon: 'none',
             duration: 1000
           })
         }

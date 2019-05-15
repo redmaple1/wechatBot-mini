@@ -47,7 +47,8 @@
 </view>
 <view style='height: 80rpx'></view>
 <view class="weui-btn-area">
-  <button class="weui-btn" type="primary" data-title='{{remindInfo.title}}'
+  <button class="weui-btn" type="primary" data-objectId='{{remindInfo.objectid}}'
+                                        data-title='{{remindInfo.title}}'
                                         data-sendTo='{{remindInfo.sendto}}'
                                         data-cronExp='{{remindInfo.cronexp}}'
                                         data-content='{{remindInfo.content}}' bindtap="editRemind">编辑</button>

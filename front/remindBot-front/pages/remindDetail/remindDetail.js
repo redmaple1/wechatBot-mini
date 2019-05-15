@@ -26,6 +26,7 @@ Page({
   },
   editRemind: function (e) {
     var infoMsg = e.currentTarget.dataset;
+    debugger
     infoMsg = JSON.stringify(infoMsg);
     wx.navigateTo({
       url: '../remindEdit/remindEdit?remindInfo=' + infoMsg,

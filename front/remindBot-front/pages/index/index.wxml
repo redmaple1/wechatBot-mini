@@ -14,7 +14,8 @@
 
       </view>
       <view class="weui-cells weui-cells_after-title" wx:for="{{remindInfoList}}" wx:key="unique">
-        <view id="{{item.index}}" data-title='{{item.title}}'
+        <view id="{{item.index}}" data-objectId='{{item.objectId}}' 
+                                        data-title='{{item.title}}'
                                         data-sendTo='{{item.sendTo}}'
                                         data-cronExp='{{item.cronExp}}'
                                         data-content='{{item.content}}' bindtap='detail' class="weui-cell weui-cell_access" hover-class="weui-cell_active">

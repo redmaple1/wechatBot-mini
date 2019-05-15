@@ -48,6 +48,7 @@ function getRemindInfo() {
   let list = [10];
   for (let i = 0; i < 10; i++) {
     let remindInfo = { "id": i,
+                       "objectId": i,
                        "title": "提醒事项" + i,
                        "sendTo": "接收人" + i,
                        "cronExp": "cron" + i,
