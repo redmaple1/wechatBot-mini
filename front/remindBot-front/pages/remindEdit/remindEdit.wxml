@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <form bindsubmit="formSubmit">
-<input hidden='true' name="remindObjectId" value='{{remindInfo.objectId}}'></input>
+<input hidden='true' name="objectId" value='{{remindInfo.objectid}}'></input>
 <view class="container">
   <view class="page__hd page-title">
     <view class="page__title">提醒详情</view>

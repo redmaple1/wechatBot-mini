@@ -49,12 +49,12 @@ Page({
         // 'content-type': 'application/x-www-form-urlencoded'
       },
       data: {
-        // objectId: remindInfo.objectId,
+        objectId: e.detail.value.objectId,
         title: e.detail.value.title,
         sendTo: e.detail.value.sendTo,
         cronExp: e.detail.value.cronExp,
         content: e.detail.value.content,
-        ownerId: "testOwnerId"
+        ownerId: "testOwnerId1"
       },
       success: (res) => {
         console.log(res.data)

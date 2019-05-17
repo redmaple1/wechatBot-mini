@@ -25,13 +25,17 @@ public class RemindInfoController {
     public ApiResult<List> getRemindList(@RequestParam("ownerId") String ownerId){
         List<AVObject> remindsByOwnerId = remindInfoService.getRemindsByOwnerId(ownerId);
 
-        List<RemindInfoVO> result = remindsByOwnerId.stream().map(i -> {
-            RemindInfoVO remindInfoVO = new RemindInfoVO();
-            BeanUtils.copyProperties(i, remindInfoVO);
-            return remindInfoVO;
-        }).collect(Collectors.toList());
+        List<RemindInfoVO> result = remindsByOwnerId.stream().map(i ->cover(i)).collect(Collectors.toList());
 
         return ApiResult.newSuccessResult(result);
+    }
+
+    @GetMapping("/remindInfo/{objectId}")
+    @ResponseBody
+    public ApiResult<RemindInfoVO> getRemindByObjectId(@PathVariable("objectId") String objectId){
+        AVObject remindByObjectId = remindInfoService.getRemindByObjectId(objectId);
+        RemindInfoVO remindInfoVO = cover(remindByObjectId);
+        return ApiResult.newSuccessResult(remindInfoVO);
     }
 
     @PostMapping("/remindInfo")
@@ -49,8 +53,19 @@ public class RemindInfoController {
     public ApiResult editRemind(@RequestBody RemindInfoVO remindInfoVO){
         RemindDO remindDO = new RemindDO();
         BeanUtils.copyProperties(remindInfoVO,remindDO);
-//        remindInfoService.updateRemind(remindInfoVO.getObjectId(),remindDO);
+        remindInfoService.updateRemind(remindInfoVO.getObjectId(),remindDO);
         return ApiResult.newSuccessResult();
+    }
+
+    private RemindInfoVO cover(AVObject source){
+        RemindInfoVO remindInfoVO = new RemindInfoVO();
+        remindInfoVO.setObjectId(source.getObjectId());
+        remindInfoVO.setTitle(source.getString("title"));
+        remindInfoVO.setSendTo(source.getString("sendTo"));
+        remindInfoVO.setCronExp(source.getString("cronExp"));
+        remindInfoVO.setContent(source.getString("content"));
+        remindInfoVO.setOwnerId(source.getString("ownerId"));
+        return remindInfoVO;
     }
 
 }

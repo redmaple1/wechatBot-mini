@@ -18,7 +18,7 @@
         <view class="weui-label">提醒对象</view>
       </view>
       <view class="weui-cell__bd">
-        <input class="weui-input" value='{{remindInfo.sendto}}' placeholder="输入提醒对象的备注名" disabled='true' />
+        <input class="weui-input" value='{{remindInfo.sendTo}}' placeholder="输入提醒对象的备注名" disabled='true' />
       </view>
     </view>
     <view class="weui-cell weui-cell_input">
@@ -26,7 +26,7 @@
         <view class="weui-label">cron表达式</view>
       </view>
       <view class="weui-cell__bd">
-        <input class="weui-input" value='{{remindInfo.cronexp}}' placeholder="请输入cron表达式" disabled='true' />
+        <input class="weui-input" value='{{remindInfo.cronExp}}' placeholder="请输入cron表达式" disabled='true' />
       </view>
     </view>
     <view class="content-input">提醒内容</view>
@@ -47,9 +47,9 @@
 </view>
 <view style='height: 80rpx'></view>
 <view class="weui-btn-area">
-  <button class="weui-btn" type="primary" data-objectId='{{remindInfo.objectid}}'
+  <button class="weui-btn" type="primary" data-objectId='{{remindInfo.objectId}}'
                                         data-title='{{remindInfo.title}}'
-                                        data-sendTo='{{remindInfo.sendto}}'
-                                        data-cronExp='{{remindInfo.cronexp}}'
+                                        data-sendTo='{{remindInfo.sendTo}}'
+                                        data-cronExp='{{remindInfo.cronExp}}'
                                         data-content='{{remindInfo.content}}' bindtap="editRemind">编辑</button>
 </view>

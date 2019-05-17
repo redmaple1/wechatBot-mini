@@ -8,7 +8,7 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    remindInfoList: getRemindInfo()
+    remindInfoList: []
   },
   //事件处理函数
   bindViewTap: function() {
@@ -17,7 +17,38 @@ Page({
     })
   },
   onLoad: function () {
-    
+    console.log("初始化列表数据");
+    wx.showLoading({
+      title: '正在加载',
+    })
+    //从服务器拉取数据
+    wx.request({
+      url: getApp().globalData.baseUrl + '/remindInfo',
+      method: 'GET',
+      header: {
+        'content-type': 'application/json'
+      },
+      data: {
+        ownerId: "testOwnerId1"
+      },
+      success: (res) => {
+        console.log(res.data)
+        var resData = res.data.data;
+        var list = [resData.length];
+        for (let i = 0; i < list.length; i++) {
+          console.log(resData[i]);
+          list[i] = resData[i];
+        }
+        this.setData({
+          remindInfoList: list
+        })
+        wx.hideLoading()
+      }
+    })
+  },
+  onPullDownRefresh: () => {
+    console.log("调用下拉刷新")
+    wx.stopPullDownRefresh()
   },
   getUserInfo: function(e) {
     console.log(e)
@@ -35,25 +66,10 @@ Page({
   },
   detail: function (e) {
     var infoMsg = e.currentTarget.dataset;
-    infoMsg = JSON.stringify(infoMsg);
+    // infoMsg = JSON.stringify(infoMsg);
     wx.navigateTo({
-      url: '../remindDetail/remindDetail?remindInfo=' + infoMsg,
+      url: '../remindDetail/remindDetail?objectId=' + infoMsg.objectid,
     })
   }
   
 })
-
-function getRemindInfo() {
-  console.log("初始化列表数据");
-  let list = [10];
-  for (let i = 0; i < 10; i++) {
-    let remindInfo = { "id": i,
-                       "objectId": i,
-                       "title": "提醒事项" + i,
-                       "sendTo": "接收人" + i,
-                       "cronExp": "cron" + i,
-                       "content": "提醒内容" + i }
-    list[i] = remindInfo;
-  }
-  return list;
-}

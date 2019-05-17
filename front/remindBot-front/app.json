@@ -10,6 +10,7 @@
     "pages/logs/logs"
   ],
   "window": {
+    "enablePullDownRefresh": true,
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "微信提醒机器人",
@@ -31,4 +32,5 @@
     ]
   },
   "sitemapLocation": "sitemap.json"
+  
 }

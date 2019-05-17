@@ -67,4 +67,16 @@ public class RemindInfoServiceImpl implements RemindInfoService {
             return Lists.newArrayList();
         }
     }
+
+    @Override
+    public AVObject getRemindByObjectId(String objectId) {
+        AVQuery<AVObject> remindQuery = new AVQuery<>(REMINDINFO_TABLE_NAME);
+        try {
+            return remindQuery.get(objectId);
+        } catch (AVException e) {
+            log.error("getRemindByObjectId({}) failed.",objectId);
+            return new AVObject();
+        }
+
+    }
 }

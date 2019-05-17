@@ -27,4 +27,11 @@ public interface RemindInfoService {
      */
     List<AVObject> getRemindsByOwnerId(String ownerId);
 
+    /**
+     * 根据objectId查询提醒信息
+     * @param objectId
+     * @return
+     */
+    AVObject getRemindByObjectId(String objectId);
+
 }
