@@ -43,8 +43,7 @@ public class RemindInfoController {
     public ApiResult addRemind(@RequestBody RemindInfoVO remindInfoVO){
         RemindDO remindDO = new RemindDO();
         BeanUtils.copyProperties(remindInfoVO,remindDO);
-//        remindDO.setOwnerId(ownerId);
-//        remindInfoService.addRemind(remindDO);
+        remindInfoService.addRemind(remindDO);
         return ApiResult.newSuccessResult();
     }
 

@@ -12,6 +12,7 @@
   "window": {
     "enablePullDownRefresh": true,
     "backgroundTextStyle": "light",
+    "backgroundColor": "#EDEDED",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "微信提醒机器人",
     "navigationBarTextStyle": "black"

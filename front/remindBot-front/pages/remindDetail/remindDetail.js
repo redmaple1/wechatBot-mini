@@ -61,5 +61,9 @@ Page({
     wx.navigateTo({
       url: '../remindEdit/remindEdit?remindInfo=' + infoMsg,
     })
+  },
+  delRemind: function (e) {
+    var delObjectId = e.currentTarget.dataset.objectid;
+    console.log("删除"+delObjectId)
   }
 })

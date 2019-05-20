@@ -52,4 +52,7 @@
                                         data-sendTo='{{remindInfo.sendTo}}'
                                         data-cronExp='{{remindInfo.cronExp}}'
                                         data-content='{{remindInfo.content}}' bindtap="editRemind">编辑</button>
+
+  <button class="weui-btn" type="warn" data-objectId='{{remindInfo.objectId}}'
+                                         bindtap="delRemind">删除</button>                                      
 </view>

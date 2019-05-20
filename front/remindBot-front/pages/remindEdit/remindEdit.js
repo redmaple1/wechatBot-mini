@@ -54,7 +54,7 @@ Page({
         sendTo: e.detail.value.sendTo,
         cronExp: e.detail.value.cronExp,
         content: e.detail.value.content,
-        ownerId: "testOwnerId1"
+        ownerId: getApp().globalData.openId
       },
       success: (res) => {
         console.log(res.data)

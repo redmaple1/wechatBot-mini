@@ -8,51 +8,59 @@ App({
 
   // 调试开发阶段先注释掉，避免每次保存都调用后端接口
     // 登录
-    // wx.login({
-    //   success: res => {
-    //     // 发送 res.code 到后台换取 openId, sessionKey, unionId
-    //     if(res.code){
-    //       console.log('js_code=' + res.code)
-    //       wx.request({
-    //         url: 'https://03fb64bf.ngrok.io/api/remindBot/login',
-    //         data: {
-    //           js_code: res.code
-    //         },
-    //         success(result) {
-    //           console.log(result.data)
-    //         }
-    //       })
-    //     }else{
-    //       console.log('登录失败！' + res.errMsg)
-    //     }
-        
-    //   }
-    // })
-    // wx.authorize({ scope: "scope.userInfo" })
-    // // 获取用户信息
-    // wx.getSetting({
-    //   success: res => {
-    //     if (res.authSetting['scope.userInfo']) {
-    //       // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-    //       wx.getUserInfo({
-    //         success: res => {
-    //           // 可以将 res 发送给后台解码出 unionId
-    //           this.globalData.userInfo = res.userInfo
-    //           console.log('userInfo: '+res.userInfo)
+    var that = this;
+    wx.login({
+      success: res => {
+        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        if(res.code){
+          console.log('js_code=' + res.code)
+          wx.request({
+            url: getApp().globalData.baseUrl + '/login',
+            data: {
+              js_code: res.code
+            },
+            success: result => {
+              console.log(result.data)
+              that.globalData.openId = result.data.openid
+              console.log("openId=" + that.globalData.openId)
 
-    //           // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-    //           // 所以此处加入 callback 以防止这种情况
-    //           if (this.userInfoReadyCallback) {
-    //             this.userInfoReadyCallback(res)
-    //           }
-    //         }
-    //       })
-    //     }
-    //   }
-    // })
+              if (this.openIdReadyCallback) {
+                this.openIdReadyCallback(result)
+              }
+            }
+          })
+        }else{
+          console.log('登录失败！' + res.errMsg)
+        }
+        console.log(this.globalData.openId)
+      }
+    })
+    // wx.authorize({ scope: "scope.userInfo" })
+    // 获取用户信息
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+          wx.getUserInfo({
+            success: res => {
+              // 可以将 res 发送给后台解码出 unionId
+              this.globalData.userInfo = res.userInfo
+              console.log('userInfo: '+res.userInfo)
+
+              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+              // 所以此处加入 callback 以防止这种情况
+              if (this.userInfoReadyCallback) {
+                this.userInfoReadyCallback(res)
+              }
+            }
+          })
+        }
+      }
+    })
   },
   globalData: {
     userInfo: null,
+    openId: "",
     baseUrl: "https://03fb64bf.ngrok.io/api/remindBot"
   }
 })
