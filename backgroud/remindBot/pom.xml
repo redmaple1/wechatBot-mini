@@ -6,6 +6,7 @@
 	<groupId>com.wechat.remindBot</groupId>
 	<artifactId>remindBot</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>remindBot</name>
 	<description>A background project for wechat to remind someone</description>
 
@@ -67,6 +68,11 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<encoding>utf8</encoding>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
