@@ -3,6 +3,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.0.M2</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
 	<groupId>com.wechat.remindBot</groupId>
 	<artifactId>remindBot</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
@@ -12,26 +18,23 @@
 
 	<properties>
 		<java.version>1.8</java.version>
-		<springboot-version>2.1.5.RELEASE</springboot-version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
-			<version>${springboot-version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-			<version>${springboot-version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
-			<version>${springboot-version}</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -69,11 +72,6 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-					<encoding>utf8</encoding>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>
