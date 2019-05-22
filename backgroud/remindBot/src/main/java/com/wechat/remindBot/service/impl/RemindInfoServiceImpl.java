@@ -55,6 +55,16 @@ public class RemindInfoServiceImpl implements RemindInfoService {
     }
 
     @Override
+    public void delRemind(String objectId) {
+        try {
+            AVQuery.doCloudQuery("update RemindInfo set status=1 where objectId=?",objectId);
+        } catch (Exception e) {
+            log.error("delete remindInfo(id={}) failed",objectId,e);
+            throw new ServiceException("删除提醒失败");
+        }
+    }
+
+    @Override
     public List<AVObject> getRemindsByOwnerId(String ownerId) {
         AVQuery<AVObject> remindQuery = new AVQuery<>(REMINDINFO_TABLE_NAME);
         remindQuery.whereEqualTo("ownerId",ownerId);

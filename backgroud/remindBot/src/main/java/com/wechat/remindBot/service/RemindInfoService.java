@@ -21,6 +21,12 @@ public interface RemindInfoService {
     void updateRemind(String objectId, RemindDO remindDO);
 
     /**
+     * 删除提醒信息
+     * @param objectId
+     */
+    void delRemind(String objectId);
+
+    /**
      * 根据ownerId获取提醒信息
      * @param ownerId
      * @return

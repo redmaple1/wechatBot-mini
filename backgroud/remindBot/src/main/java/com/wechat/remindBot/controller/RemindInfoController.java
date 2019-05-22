@@ -56,6 +56,13 @@ public class RemindInfoController {
         return ApiResult.newSuccessResult();
     }
 
+    @DeleteMapping("/remindInfo/objectId")
+    @ResponseBody
+    public ApiResult delRemind(@PathVariable("objectId") String objectId){
+        delRemind(objectId);
+        return ApiResult.newSuccessResult();
+    }
+
     private RemindInfoVO cover(AVObject source){
         RemindInfoVO remindInfoVO = new RemindInfoVO();
         remindInfoVO.setObjectId(source.getObjectId());
